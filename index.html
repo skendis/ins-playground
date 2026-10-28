@@ -3,55 +3,90 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lumen - Focus time, protected</title>
+<meta name="theme-color" content="#f4f3ef">
+<title>Daylight - Your to-do list</title>
 <style>
-*{box-sizing:border-box;margin:0}
-body{font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;color:#1b1f2a;background:#fff;line-height:1.5}
-.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
-nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
-.logo{font-weight:800;font-size:22px;color:#5b4bff}
-nav a{color:#4a5160;text-decoration:none;margin-left:24px;font-size:15px}
-.hero{background:linear-gradient(160deg,#f3f1ff,#fff 60%);padding-bottom:70px}
-.hero .wrap{text-align:center;padding-top:60px}
-.badge{display:inline-block;background:#e6e2ff;color:#4437d6;padding:6px 14px;border-radius:99px;font-size:13px;font-weight:600}
-h1{font-size:56px;line-height:1.1;margin:22px auto 18px;max-width:760px;letter-spacing:-1.5px}
-h1 span{color:#5b4bff}
-.sub{font-size:20px;color:#586072;max-width:560px;margin:0 auto 32px}
-.btn{display:inline-block;background:#5b4bff;color:#fff;padding:14px 28px;border-radius:10px;font-weight:600;text-decoration:none;box-shadow:0 8px 20px rgba(91,75,255,.3)}
-.btn.alt{background:#fff;color:#5b4bff;border:1px solid #d8d4ff;box-shadow:none;margin-left:10px}
-.mock{margin:50px auto 0;max-width:640px;background:#fff;border-radius:16px;box-shadow:0 20px 50px rgba(40,30,120,.15);padding:22px;text-align:left}
-.row{display:flex;gap:12px;align-items:center;padding:12px;border-radius:10px;margin-bottom:8px;background:#f7f7fb;font-size:15px}
-.row b{width:70px;color:#8a90a0;font-weight:500}
-.row.focus{background:#5b4bff;color:#fff}.row.focus b{color:#d8d4ff}
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:80px 0}
-.card{border:1px solid #ececf3;border-radius:14px;padding:26px}
-.card .i{font-size:24px;color:#5b4bff}.card h3{margin:12px 0 6px}.card p{color:#586072;font-size:15px}
-.cta{background:#1b1f2a;color:#fff;text-align:center;padding:64px 24px;border-radius:20px;margin-bottom:60px}
-.cta h2{font-size:34px;margin-bottom:10px}.cta p{color:#aab0c0;margin-bottom:24px}
-footer{text-align:center;color:#8a90a0;font-size:14px;padding-bottom:40px}
-@media(max-width:760px){h1{font-size:38px}.features{grid-template-columns:1fr}}
+:root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#252d29;background:#f4f3ef;font-synthesis:none}*{box-sizing:border-box}body{margin:0}button,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #a6c6b6;outline-offset:4px}button{touch-action:manipulation}.shell{max-width:920px;margin:auto;padding:40px 28px}.brand{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:750;letter-spacing:-.7px}.sun{height:28px;width:28px;border-radius:50%;background:#d9a954;box-shadow:inset -8px -6px 0 #eccf94}.top{display:flex;justify-content:space-between;align-items:center}.private{font-size:12px;color:#647069}.intro{margin:64px 0 30px}.eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:11px;font-weight:700;color:#6d796f}h1{font-size:clamp(36px,6vw,54px);letter-spacing:-2px;font-weight:600;margin:12px 0}h1 span{font-family:Georgia,serif;font-style:italic;font-weight:400;color:#66816d}.subtitle{color:#6b756e;font-size:15px;line-height:1.6}.board{background:#fff;border:1px solid #e0e4dd;border-radius:20px;box-shadow:0 10px 40px #27392e06;overflow:hidden}.board-head{padding:26px 28px 22px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #edf0eb}.board-head h2{font-size:17px;margin:0}.counter{font-size:12px;color:#5d7063;background:#f0f5ef;padding:7px 11px;border-radius:20px}.composer{display:flex;gap:12px;margin:24px 28px 20px}.composer input{width:100%;min-width:0;border:1px solid #dce2db;border-radius:10px;padding:15px 16px;background:#fcfdfb;font-size:14px}.primary{border:0;border-radius:10px;padding:12px 20px;background:#345442;color:#fff;font-weight:600;white-space:nowrap}.primary:hover{background:#243f30}.toolbar{display:flex;justify-content:space-between;align-items:center;padding:0 28px 16px;gap:12px}.filters{display:flex;gap:4px}.filter{border:0;background:transparent;color:#6d776f;padding:8px 12px;border-radius:7px;font-size:12px}.filter[aria-pressed="true"]{background:#edf2ec;color:#345442;font-weight:700}.clear{background:none;border:0;font-size:12px;color:#6d776f;padding:8px 0}.clear:hover{color:#9b4237}.clear:disabled{opacity:.4;cursor:default}.tasks{padding:0 28px;margin:0;list-style:none}.task{display:flex;align-items:center;gap:14px;min-height:76px;border-top:1px solid #edf0eb;padding:16px 0}.task input[type=checkbox]{accent-color:#345442;width:20px;height:20px;flex-shrink:0;cursor:pointer}.task-title{flex:1;min-width:0;overflow-wrap:anywhere;font-size:14px;line-height:1.5}.completed .task-title{color:#8b948c;text-decoration:line-through}.actions{display:flex;gap:4px;flex-shrink:0}.icon{background:none;border:0;color:#778279;border-radius:6px;padding:9px;display:grid;place-items:center}.icon:hover{background:#f1f4ee;color:#345442}.icon.danger:hover{color:#9b4237;background:#fff0ee}.icon svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.edit-form{display:flex;flex:1;gap:8px;flex-wrap:wrap}.edit-form input{flex:1;min-width:80px;width:100%;padding:8px;border:1px solid #b5c7b8;border-radius:6px}.edit-form button{font-size:12px;border:0;border-radius:6px;padding:8px;background:#edf2ec;color:#345442}.empty{padding:42px 24px 52px;text-align:center;border-top:1px solid #edf0eb}.empty-symbol{font-size:30px;color:#8da58d}.empty h3{font-weight:600;font-size:17px;margin:16px 0 8px}.empty p{font-size:13px;color:#778279;line-height:1.6;margin:0}.board-foot{background:#fafbf8;border-top:1px solid #edf0eb;padding:16px 28px;display:flex;justify-content:space-between;font-size:11px;color:#7b867b;gap:12px}.footer{text-align:center;color:#8a9389;font-size:12px;margin:27px 0}.message{margin:0 28px 16px;color:#9b4237;font-size:13px;line-height:1.5}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}[hidden]{display:none!important}@media(max-width:540px){.shell{padding:24px 16px}.private{font-size:10px}.intro{margin-top:45px}.board-head{padding:22px 20px}.composer{margin:20px 16px 16px;gap:8px}.primary{padding:12px 14px}.toolbar{padding:0 16px 16px;flex-wrap:wrap}.filter{padding:8px 10px}.tasks{padding:0 16px}.board-foot{padding:16px}.task{gap:10px}.icon{padding:8px}.subtitle{font-size:14px}}
 </style>
 </head>
 <body>
-<header class="hero"><div class="wrap">
-<nav><div class="logo">Lumen</div><div><a href="#features">Features</a><a href="#start">Pricing</a><a href="#start">Sign in</a></div></nav>
-<span class="badge">New: auto-planning</span>
-<h1>Protect your time to <span>do deep work</span></h1>
-<p class="sub">Lumen blocks focus time on your calendar, silences distractions, and plans your day in seconds.</p>
-<a class="btn" href="#start">Start free</a><a class="btn alt" href="#features">See how it works</a>
-<div class="mock">
-<div class="row"><b>9:00</b>Team standup</div>
-<div class="row focus"><b>10:00</b>Focus block - Write proposal</div>
-<div class="row"><b>12:30</b>Lunch</div>
-<div class="row focus"><b>14:00</b>Focus block - Code review</div>
-</div></div></header>
-<main class="wrap">
-<section class="features" id="features">
-<div class="card"><div class="i">◆</div><h3>Smart blocks</h3><p>Finds the best gaps in your week and guards them.</p></div>
-<div class="card"><div class="i">●</div><h3>Quiet mode</h3><p>Pauses notifications while you focus, then catches you up.</p></div>
-<div class="card"><div class="i">▲</div><h3>Weekly insights</h3><p>See how many deep-work hours you actually got.</p></div>
+<div class="shell">
+<header class="top"><div class="brand"><span class="sun" aria-hidden="true"></span>daylight</div><span class="private">A little space for what matters</span></header>
+<main>
+<section class="intro"><div class="eyebrow">Make room for a good day</div><h1>Less noise. <span>More done.</span></h1><p class="subtitle">One task at a time. A clearer mind at the end of the day.</p></section>
+<section class="board" aria-labelledby="list-heading">
+<div class="board-head"><h2 id="list-heading">Your to-do list</h2><span class="counter" id="counter">0 tasks left</span></div>
+<form class="composer" id="add-form"><label for="new-task" class="sr-only">New task</label><input id="new-task" placeholder="What would you like to get done?" maxlength="500" autocomplete="off" required><button class="primary" type="submit">+ Add task</button></form>
+<p class="message" id="message" role="alert" hidden></p>
+<div class="toolbar"><div class="filters" role="group" aria-label="Filter tasks"><button class="filter" data-filter="all" aria-pressed="true">All</button><button class="filter" data-filter="active" aria-pressed="false">Active</button><button class="filter" data-filter="completed" aria-pressed="false">Completed</button></div><button class="clear" id="clear" disabled>Clear completed</button></div>
+<ul class="tasks" id="tasks" aria-label="Tasks"></ul>
+<div class="empty" id="empty"><span class="empty-symbol" aria-hidden="true">☀</span><h3 id="empty-title">A fresh start.</h3><p id="empty-description">Add your first task above.<br>Small steps count.</p></div>
+<div class="board-foot"><span id="progress">Your day, at your pace.</span><span>Saved on this browser</span></div>
 </section>
-<section class="cta" id="start"><h2>Get your hours back</h2><p>Free for 14 days. No credit card needed.</p><a class="btn" href="#">Create account</a></section>
+<p class="footer">Keep it simple. Make it happen.</p><div id="status" role="status" class="sr-only" aria-live="polite"></div>
 </main>
-<footer>© 2026 Lumen (fictional example product)</footer>
-</body></html>
+</div>
+<script>
+'use strict';
+const KEY = 'daylight-tasks-v1';
+const $ = id => document.getElementById(id);
+let tasks = [], filter = 'all', editing = null;
+function message(text) { $('message').textContent = text; $('message').hidden = !text; }
+try {
+  const raw = localStorage.getItem(KEY);
+  if (raw !== null) {
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed) || !parsed.every(t => t && typeof t.id === 'string' && typeof t.text === 'string' && typeof t.done === 'boolean') || new Set(parsed.map(t => t.id)).size !== parsed.length) throw new Error('Invalid data');
+    tasks = parsed;
+  }
+} catch (error) { message('Saved tasks could not be loaded. This session still works, but do not rely on storage until browser access is restored.'); }
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(tasks)); message(''); }
+  catch (error) { message('Your changes are only in memory. Browser storage is unavailable or full, so they may be lost when you leave this page.'); }
+}
+function announce(text) { $('status').textContent = text; }
+function iconButton(label, path, action, danger = false) {
+  const button = document.createElement('button'); button.type = 'button'; button.className = 'icon' + (danger ? ' danger' : ''); button.setAttribute('aria-label', label); button.title = label;
+  button.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="' + path + '"></path></svg>'; button.addEventListener('click', action); return button;
+}
+function update() { save(); render(); }
+function render() {
+  const active = tasks.filter(t => !t.done).length, completed = tasks.length - active;
+  $('counter').textContent = active + (active === 1 ? ' task left' : ' tasks left');
+  $('clear').disabled = completed === 0;
+  $('progress').textContent = tasks.length ? completed + ' of ' + tasks.length + ' completed' : 'Your day, at your pace.';
+  document.querySelectorAll('[data-filter]').forEach(b => b.setAttribute('aria-pressed', String(filter === b.dataset.filter)));
+  const visible = tasks.filter(t => filter === 'all' || (filter === 'completed' ? t.done : !t.done));
+  $('tasks').replaceChildren(); $('empty').hidden = visible.length > 0;
+  $('empty-title').textContent = filter === 'completed' ? 'No completed tasks yet.' : tasks.length ? 'All clear.' : 'A fresh start.';
+  $('empty-description').textContent = filter === 'completed' ? 'Check off a task and it will appear here.' : tasks.length ? 'Take a breath. Add a new task when you are ready.' : 'Add your first task above. Small steps count.';
+  visible.forEach(task => {
+    const li = document.createElement('li'); li.className = 'task' + (task.done ? ' completed' : '');
+    const checkbox = document.createElement('input'); checkbox.type = 'checkbox'; checkbox.checked = task.done; checkbox.setAttribute('aria-label', 'Mark ' + task.text + (task.done ? ' active' : ' complete'));
+    checkbox.addEventListener('change', () => { task.done = checkbox.checked; update(); announce(task.done ? 'Task completed.' : 'Task marked active.'); }); li.append(checkbox);
+    if (editing === task.id) {
+      const form = document.createElement('form'); form.className = 'edit-form'; const input = document.createElement('input'); input.value = task.text; input.maxLength = 500; input.required = true; input.setAttribute('aria-label', 'Edit task');
+      const submit = document.createElement('button'); submit.textContent = 'Save'; submit.type = 'submit'; const cancel = document.createElement('button'); cancel.textContent = 'Cancel'; cancel.type = 'button';
+      cancel.addEventListener('click', () => { editing = null; render(); }); input.addEventListener('keydown', e => { if (e.key === 'Escape') { editing = null; render(); } });
+      form.append(input, submit, cancel); form.addEventListener('submit', e => { e.preventDefault(); const text = input.value.trim(); if (!text) { input.setCustomValidity('Enter a task.'); input.reportValidity(); return; } task.text = text; editing = null; update(); announce('Task updated.'); });
+      input.addEventListener('input', () => input.setCustomValidity('')); li.append(form); $('tasks').append(li); requestAnimationFrame(() => { input.focus(); input.select(); });
+    } else {
+      const text = document.createElement('span'); text.className = 'task-title'; text.textContent = task.text;
+      const actions = document.createElement('div'); actions.className = 'actions';
+      actions.append(iconButton('Edit ' + task.text, 'M16 3l5 5-12 12-6 1 1-6z M14 5l5 5', () => { editing = task.id; render(); }), iconButton('Delete ' + task.text, 'M3 6h18 M9 6V3h6v3 M5 6l1 15h12l1-15 M10 10v7 M14 10v7', () => { tasks = tasks.filter(t => t.id !== task.id); update(); announce('Task deleted.'); }, true));
+      li.append(text, actions); $('tasks').append(li);
+    }
+  });
+}
+$('add-form').addEventListener('submit', e => {
+  e.preventDefault(); const input = $('new-task'), text = input.value.trim(); if (!text) { input.setCustomValidity('Enter a task.'); input.reportValidity(); return; }
+  tasks.push({id: crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2), text, done: false}); input.value = ''; filter = 'all'; editing = null; update(); input.focus(); announce('Task added.');
+});
+$('new-task').addEventListener('input', () => $('new-task').setCustomValidity(''));
+document.querySelectorAll('[data-filter]').forEach(b => b.addEventListener('click', () => { filter = b.dataset.filter; editing = null; render(); }));
+$('clear').addEventListener('click', () => { const count = tasks.filter(t => t.done).length; if (count && confirm('Remove ' + count + ' completed ' + (count === 1 ? 'task' : 'tasks') + '?')) { tasks = tasks.filter(t => !t.done); update(); announce('Completed tasks cleared.'); } });
+window.addEventListener('storage', e => { if (e.key === KEY || e.key === null) { try { const next = JSON.parse(localStorage.getItem(KEY) || '[]'); if (!Array.isArray(next) || !next.every(t => t && typeof t.id === 'string' && typeof t.text === 'string' && typeof t.done === 'boolean')) return; tasks = next; editing = null; render(); } catch (error) { message('Tasks changed in another tab but could not be loaded.'); } } });
+render();
+</script>
+</body>
+</html>
